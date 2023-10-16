@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Profile.css">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Edit Profile</h1>
+    </header>
+    <main class="container">
+        <section class="profile-form">
+            <h2 class="section__title">Your Profile</h2>
+            <form id="profile-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Save Changes</button>
+					<button type="button" class="btn" onclick="goBack()">Back</button>
+                </div>
+				
+            </form>
+        </section>
+    </main>
+    <script src="Profile.js"></script>
+</body>
+</html>
