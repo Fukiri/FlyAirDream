@@ -26,6 +26,15 @@
                         <!-- Add more lounge options here -->
                     </select>
                 </div>
+				<div class="form-group">
+					<label for="location">Select a Location:</label>
+					<select id="location" name="location" class="form-control">
+						<option value="location1">Location 1</option>
+						<option value="location2">Location 2</option>
+						<!-- Add more location options here -->
+					</select>
+				</div>
+
                 <div class="form-group">
                     <label for="date">Select Date:</label>
                     <input type="date" id="date" name="date" class="form-control">
@@ -36,6 +45,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn">Book Now</button>
+					<button id="check-availability" class="btn check-availability-button">Check Availability</button>
                 </div>
             </form>
         </section>
@@ -45,5 +55,22 @@
         </section>
     </main>
     <script src="FlyAirDream.js"></script>
+	<script>
+        // Add an event listener for the "Check Availability" button
+        document.getElementById('check-availability').addEventListener('click', function (e) {
+			e.preventDefault();
+            // Get user input data
+			const lounge = document.getElementById('lounge').value;
+			const date = document.getElementById('date').value;
+			const guests = document.getElementById('guests').value;
+			const location = document.getElementById('location').value;
+
+			// Construct the URL with query parameters
+			const url = `LoungeDetails.html?loungeName=${lounge}&location=${location}&services=YourServices&availabilityToday=Yes&occupancy=80%&nextAvailableSlot=2:00 PM`;
+		   
+            // Redirect to the LoungeDetails.html page with user input data
+            window.location.href = url;
+        });
+    </script>
 </body>
 </html>
