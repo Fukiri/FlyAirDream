@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         objectStore.createIndex('lounge', 'lounge', { unique: false });
         objectStore.createIndex('date', 'date', { unique: false });
         objectStore.createIndex('guests', 'guests', { unique: false });
+		objectStore.createIndex('location', 'location', { unique: false });
     };
 
     // Function to setup event listeners
@@ -41,12 +42,14 @@ document.addEventListener('DOMContentLoaded', function () {
             var lounge = document.getElementById('lounge').value;
             var date = document.getElementById('date').value;
             var guests = document.getElementById('guests').value;
+			var location = document.getElementById('location').value;
 
             // Create a booking object
             var booking = {
                 lounge: lounge,
                 date: date,
                 guests: guests,
+				location: location,
             };
 
             // Add the booking to IndexedDB
@@ -110,6 +113,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				var guestsInfo = document.createElement('p');
 				guestsInfo.textContent = 'Number of Guests: ' + cursor.value.guests;
 				guestsInfo.classList.add('info');
+				
+				var locationInfo = document.createElement('p');
+				locationInfo.textContent = 'Location: ' + cursor.value.location; // Include location
+				locationInfo.classList.add('info');
 
 				var deleteButton = document.createElement('button');
 				deleteButton.classList.add('delete-button');
@@ -121,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				bookingEntry.appendChild(loungeInfo);
 				bookingEntry.appendChild(dateInfo);
 				bookingEntry.appendChild(guestsInfo);
+				bookingEntry.appendChild(locationInfo);
 				bookingEntry.appendChild(deleteButton);
 
 				// Append the booking entry div to the bookingInfo section
